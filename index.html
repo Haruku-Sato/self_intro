@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自己紹介 | Vibe Coding</title>
+    <style>
+        :root {
+            --bg-color-top: #0a1410;
+            --bg-color-mid: #16281e;
+            --bg-color-bottom: #243b2d;
+            --cream-color: #fcf9eb;
+            --cream-dark: #e8e4ce;
+            --text-color: #333;
+            --highlight: #d1b87a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+            background: linear-gradient(135deg, var(--bg-color-top), var(--bg-color-mid), var(--bg-color-bottom));
+            background-attachment: fixed;
+            color: var(--cream-color);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* Scroll Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .moon-container {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            margin-bottom: 2rem;
+            box-shadow: 0 0 60px rgba(252, 249, 235, 0.4);
+            overflow: hidden;
+            background-color: var(--cream-color); /* Fallback */
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .moon-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            letter-spacing: 0.1em;
+            color: var(--cream-color);
+            text-shadow: 0 0 20px rgba(252, 249, 235, 0.3);
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--cream-dark);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator::before {
+            content: '';
+            display: block;
+            width: 20px;
+            height: 20px;
+            border-right: 2px solid var(--cream-color);
+            border-bottom: 2px solid var(--cream-color);
+            transform: rotate(45deg);
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-15px); }
+            60% { transform: translateX(-50%) translateY(-7px); }
+        }
+
+        /* Container & Cards */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section {
+            margin-bottom: 6rem;
+        }
+
+        .card {
+            background: rgba(252, 249, 235, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(252, 249, 235, 0.1);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(252, 249, 235, 0.2);
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: var(--highlight);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        h2::before {
+            content: '✧';
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: #f1ebd8;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        ul li {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #f1ebd8;
+        }
+
+        ul li::before {
+            content: '✦';
+            color: var(--highlight);
+            position: absolute;
+            left: 0;
+            top: 2px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem;
+            color: var(--cream-dark);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(252, 249, 235, 0.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .hero p { font-size: 1rem; }
+            .moon-container { width: 180px; height: 180px; }
+            .card { padding: 2rem; }
+            h2 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <div class="moon-container">
+            <!-- C:\Users\rea75\.gemini\antigravity\brain\3f6f2018-0057-4e18-b93b-c171ad4e85c5\warm_moon_green_sky_1776564518973.png -->
+            <!-- The actual path will need to be referenced correctly or copied to the project directory -->
+            <img src="moon.png" alt="Warm Moon in Green Sky" id="hero-moon">
+        </div>
+        <h1 class="fade-in">自己紹介</h1>
+        <p class="fade-in">Welcome to my portfolio</p>
+        <div class="scroll-indicator"></div>
+    </section>
+
+    <div class="container">
+        <section class="section fade-in">
+            <div class="card">
+                <h2>興味があること</h2>
+                <p>現在一番興味を持っているのは<strong>「バイブコーディング」</strong>です。感覚的にコードを操り、作りたいものを形にしていくプロセスに魅力を感じています。</p>
+            </div>
+        </section>
+
+        <section class="section fade-in">
+            <div class="card">
+                <h2>自分にとってのAI</h2>
+                <p>AIは<strong>「勝手に動く道具のような存在」</strong>だと考えています。</p>
+                <p>自動で高度な処理を行ってくれますが、それに振り回されるのではなく、<strong>「自分で手綱を握る必要がある」</strong>という意識を常に持っています。</p>
+            </div>
+        </section>
+
+        <section class="section fade-in">
+            <div class="card">
+                <h2>今後AIとどう向き合いたいか</h2>
+                <p><strong>「自らが主導権（手綱）を握り、扱う側の意思次第でどうにでも変化するAIという強力な道具の真価を、最大限に引き出していきたい」</strong>と考えています。</p>
+            </div>
+        </section>
+
+        <section class="section fade-in">
+            <div class="card">
+                <h2>この授業を通して挑戦したいこと</h2>
+                <ul>
+                    <li><strong>日常の不便さを解決できるアプリ</strong>を制作し、実際に役立つものを生み出すこと。</li>
+                    <li><strong>校外の人とも積極的に関わり</strong>、その人たちがどのような世界で生き、どのような活動をしているのか、<strong>生の情報を見聞きし視野を広げる</strong>こと。</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Portfolio. Design with Warm Moon.</p>
+    </footer>
+
+    <script>
+        // Scroll Animation Logic
+        document.addEventListener("DOMContentLoaded", () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: "0px",
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("active");
+                        observer.unobserve(entry.target); // Animate only once
+                    }
+                });
+            }, observerOptions);
+
+            const fadeElements = document.querySelectorAll(".fade-in");
+            fadeElements.forEach(el => observer.observe(el));
+            
+            // Trigger animation for elements already in viewport on load
+            setTimeout(() => {
+                fadeElements.forEach(el => {
+                    const rect = el.getBoundingClientRect();
+                    if(rect.top < window.innerHeight) {
+                        el.classList.add("active");
+                    }
+                });
+            }, 100);
+        });
+    </script>
+</body>
+</html>
